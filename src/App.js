@@ -6,8 +6,14 @@ import Col from "./components/Col/Col";
 import Header from "./components/Header/Header";
 import Search from "./components/Search/Search";
 import Employee from "./components/Employee/Employee";
+import API from "./utils/API";
 
 class App extends Component {
+  state = {
+    result: [],
+    search: ""
+  };
+  
   render() {
     return (
       <Router>
