@@ -2,9 +2,7 @@ import React from "react";
 
 function Container(props) {
     return (
-<div>
-    
-</div>
+<main className="container">{props.children}</main>
     );
 }
 export default Container;

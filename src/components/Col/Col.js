@@ -1,10 +1,6 @@
 import React from "react";
 
 function Col(props) {
-    return (
-<div>
-    
-</div>
-    );
+    return <div className="col">{props.children}</div>;
 }
 export default Col;
