@@ -1,5 +1,10 @@
 import "./App.css";
 import Container from "./components/Container";
+import Row from "./components/Row";
+import Col from "./components/Col";
+import Header from "./components/Header";
+import Search from "./components/Search";
+import Employee from "./components/Employee";
 
 function App() {
   return (
