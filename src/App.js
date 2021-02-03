@@ -10,10 +10,20 @@ import API from "./utils/API";
 
 class App extends Component {
   state = {
-    result: [],
+    result: {},
     search: ""
   };
-  
+
+renderEmployees = () => {
+  API.getRandomEmployees()
+  .then((employees) => console.log("Employees: ", employees))
+  .catch(err => console.log(err));
+};
+
+componentDidMount() {
+  this.renderEmployees();
+}
+
   render() {
     return (
       <Router>
