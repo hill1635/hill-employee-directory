@@ -11,18 +11,25 @@ import API from "./utils/API";
 class App extends Component {
   state = {
     result: {},
-    search: ""
+    search: "",
   };
 
-renderEmployees = () => {
-  API.getRandomEmployees()
-  .then((employees) => console.log("Employees: ", employees))
-  .catch(err => console.log(err));
-};
+  employeeList = [];
 
-componentDidMount() {
-  this.renderEmployees();
-}
+  renderEmployees = () => {
+    API.getRandomEmployees()
+      .then((employees) => {
+        var newEmployeeList = employees.data.results;
+        newEmployeeList.forEach(employee => {
+          this.employeeList.push(employee);
+        });
+      })
+      .catch((err) => console.log(err));
+  };
+
+  componentDidMount() {
+    this.renderEmployees();
+  }
 
   render() {
     return (
@@ -40,7 +47,7 @@ componentDidMount() {
           </Row>
           <Row>
             <Col>
-              <Employee></Employee>
+              <Employee employees={this.employeeList}></Employee>
             </Col>
           </Row>
         </Container>
