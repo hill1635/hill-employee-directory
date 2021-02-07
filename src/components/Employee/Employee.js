@@ -1,17 +1,11 @@
 import React from "react";
 
 function Employee(props) {
-  //DOESNT QUITE WORK, CANT GET INDIVIDUAL EMPLOYEES IN LIST
-  // var propsEmployees = [props.employees[0]];
-  // var employeeList = [];
-  // propsEmployees.forEach((employee) => {
-  //   employeeList.push(employee);
-  // });
-  // console.log(props.employees);
 
   return (
     <div>
       {props.employees.map((employee) => (
+        <div>
           <ul>
             <li>
               Name: {employee.name.first} {employee.name.last}
@@ -20,6 +14,7 @@ function Employee(props) {
             <li>Phone: {employee.cell}</li>
             {/* <li>{employee.location}</li> */}
           </ul>
+        </div>
       ))}
     </div>
   );

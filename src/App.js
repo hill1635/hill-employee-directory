@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import Container from "./components/Container/Container";
 import Row from "./components/Row/Row";
 import Col from "./components/Col/Col";
@@ -10,8 +10,7 @@ import API from "./utils/API";
 
 class App extends Component {
   state = {
-    result: {},
-    search: "",
+    employees: this.employeeList,
   };
 
   employeeList = [];
@@ -23,6 +22,7 @@ class App extends Component {
         newEmployeeList.forEach(employee => {
           this.employeeList.push(employee);
         });
+        this.setState(this.employeeList);
       })
       .catch((err) => console.log(err));
   };
