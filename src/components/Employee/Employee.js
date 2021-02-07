@@ -4,7 +4,13 @@ function Employee(props) {
 
   return (
     <div>
-      {props.employees.map((employee) => (
+      {props.employees.filter((employee) => {
+        if (props.search == "") {
+          return employee;
+        } else if (employee.name.first.toLowerCase().includes(props.search.toLowerCase()) || employee.name.last.toLowerCase().includes(props.search.toLowerCase())) {
+          return employee;
+        }
+}).map((employee) => (
         <div>
           <ul>
             <li>

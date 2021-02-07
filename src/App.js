@@ -11,6 +11,7 @@ import API from "./utils/API";
 class App extends Component {
   state = {
     employees: this.employeeList,
+    search: "",
   };
 
   employeeList = [];
@@ -19,12 +20,17 @@ class App extends Component {
     API.getRandomEmployees()
       .then((employees) => {
         var newEmployeeList = employees.data.results;
-        newEmployeeList.forEach(employee => {
+        newEmployeeList.forEach((employee) => {
           this.employeeList.push(employee);
         });
         this.setState(this.employeeList);
       })
       .catch((err) => console.log(err));
+  };
+
+  searchDirectory = (event) => {
+    console.log("event: ", event.target.value);
+    this.setState({ search: event.target.value });
   };
 
   componentDidMount() {
@@ -42,12 +48,18 @@ class App extends Component {
           </Row>
           <Row>
             <Col>
-              <Search></Search>
+              <Search
+                search={this.state.search}
+                className="search"
+                onChange={(e) => this.searchDirectory(e)}
+              ></Search>
             </Col>
           </Row>
           <Row>
             <Col>
-              <Employee employees={this.employeeList}></Employee>
+              <Employee 
+              employees={this.employeeList}
+              search={this.state.search}></Employee>
             </Col>
           </Row>
         </Container>
