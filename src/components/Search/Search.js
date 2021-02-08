@@ -1,6 +1,7 @@
 import React from "react";
 
 function Search(props) {
+    console.log("search props: ", props);
   return (
     <div>
       <input
@@ -8,7 +9,8 @@ function Search(props) {
         placeholder="Who are you looking for?"
         onChange={props.onChange}
       ></input>
-      <button>Search</button>
+      <p>Sort by Last Name:</p>
+      <button onClick={props.onClick}>{props.sort}</button>
     </div>
   );
 }
