@@ -12,7 +12,7 @@ class App extends Component {
   state = {
     employees: this.employeeList,
     search: "",
-    sort: "asc",
+    sort: "desc",
   };
 
   employeeList = [];
@@ -35,13 +35,14 @@ class App extends Component {
 
   sortDirectory = (event) => {
     event.preventDefault();
-    
+
     if (this.state.sort == "asc") {
-    this.setState({ sort: "desc" });
+      this.setState({ sort: "desc" });
+
     } else if (this.state.sort == "desc") {
-      this.setState({ sort: "asc" })
+      this.setState({ sort: "asc" });
     }
-  }
+  };
 
   componentDidMount() {
     this.renderEmployees();
@@ -69,10 +70,11 @@ class App extends Component {
           </Row>
           <Row>
             <Col>
-              <Employee 
-              employees={this.employeeList}
-              search={this.state.search}
-              sort={this.state.sort}></Employee>
+              <Employee
+                employees={this.employeeList}
+                search={this.state.search}
+                sort={this.state.sort}
+              ></Employee>
             </Col>
           </Row>
         </Container>

@@ -18,6 +18,26 @@ function Employee(props) {
             return employee;
           }
         })
+        .sort((a, b) => {
+          switch (props.sort) {
+            case "asc":
+              if (b.name.last < a.name.last) {
+                return -1;
+              } else if (b.name.last > a.name.last) {
+                return 1;
+              } else {
+                return 0;
+              }
+            case "desc":
+              if (a.name.last < b.name.last) {
+                return -1;
+              } else if (a.name.last > b.name.last) {
+                return 1;
+              } else {
+                return 0;
+              }
+          }
+        })
         .map((employee) => (
           <div>
             <ul>
