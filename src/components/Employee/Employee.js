@@ -46,7 +46,6 @@ function Employee(props) {
               </li>
               <li>Email: {employee.email}</li>
               <li>Phone: {employee.cell}</li>
-              {/* <li>{employee.location}</li> */}
             </ul>
           </div>
         ))}
